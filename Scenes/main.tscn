@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://csl2qa8vc3swk"]
+[gd_scene load_steps=4 format=3 uid="uid://csl2qa8vc3swk"]
 
+[ext_resource type="Texture2D" uid="uid://dgmd4dbxgsxrx" path="res://Art/room_twOWO.png" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://cp5m14pc7qmw0" path="res://Art/asshole_1.png" id="1_jjgbg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7u77a"]
@@ -12,45 +13,65 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Character_Name" type="Label" parent="."]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 735.0
-offset_right = 455.0
-offset_bottom = 810.0
-text = "The PISSMAN"
-label_settings = SubResource("LabelSettings_7u77a")
-
-[node name="Dialogue_Box" type="RichTextLabel" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.75
+anchor_right = 1.001
+anchor_bottom = 0.752
+offset_right = -0.920044
+offset_bottom = -0.160034
+texture = ExtResource("1_bo1nx")
+
+[node name="Character_Name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003
+anchor_top = 0.63
+anchor_right = 0.458
+anchor_bottom = 0.699
+offset_left = -0.76
+offset_top = -0.400085
+offset_right = 0.639954
+offset_bottom = 0.0799561
+text = "Steve The Shaman"
+label_settings = SubResource("LabelSettings_7u77a")
+
+[node name="Dialogue_Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.694
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -6.10352e-05
+offset_top = 0.47998
+offset_bottom = 2.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
-[node name="KILL ME PLEASE" type="ReferenceRect" parent="Dialogue_Box"]
+[node name="Dialogue_Box" type="RichTextLabel" parent="Dialogue_Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-border_width = 5.0
+horizontal_alignment = 3
+vertical_alignment = 1
 
 [node name="Character_Image" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.911
+anchor_left = 0.833
+anchor_top = 0.224
 anchor_right = 1.0
-anchor_bottom = 0.748
-offset_left = -149.12
-offset_top = 300.0
-offset_bottom = 4.15997
+anchor_bottom = 0.698
+offset_left = 0.639893
+offset_top = 0.0799866
+offset_bottom = 0.159973
 grow_horizontal = 0
 texture = ExtResource("1_jjgbg")

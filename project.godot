@@ -16,11 +16,14 @@ config/version="0.0.1"
 run/main_scene="uid://c4br8w05n7p4f"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.4", "GL Compatibility")
-run/max_fps=12
 boot_splash/use_filter=false
 boot_splash/image="uid://dhpepnqhi62w0"
 config/icon="uid://djvnfjwwa3rmb"
 boot_splash/minimum_display_time=10000
+
+[debug]
+
+gdscript/warnings/unsafe_property_access=1
 
 [display]
 
@@ -30,8 +33,13 @@ window/size/initial_position_type=3
 window/size/borderless=true
 window/size/always_on_top=true
 window/energy_saving/keep_screen_on=false
+window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://djvnfjwwa3rmb"
 mouse_cursor/custom_image_hotspot=Vector2(1, 1)
+
+[editor]
+
+movie_writer/fps=30
 
 [rendering]
 
