@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://csl2qa8vc3swk"]
+[gd_scene load_steps=2 format=3 uid="uid://csl2qa8vc3swk"]
+
+[ext_resource type="Script" uid="uid://bwo23dxyna6mf" path="res://Scripts/background_manager.gd" id="1_jjgbg"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+script = ExtResource("1_jjgbg")

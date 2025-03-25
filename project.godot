@@ -10,9 +10,29 @@ config_version=5
 
 [application]
 
-config/name="WW2-CYOA"
+config/name="Worlds best Choose Your Own Adventure!"
+config/description="We do not take responsibility for any cringe obtained by playing this game."
+config/version="0.0.1"
+run/main_scene="uid://c4br8w05n7p4f"
+config/quit_on_go_back=false
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://Art/icon.svg"
+run/max_fps=12
+boot_splash/use_filter=false
+boot_splash/image="uid://dhpepnqhi62w0"
+config/icon="uid://djvnfjwwa3rmb"
+boot_splash/minimum_display_time=10000
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
+window/size/initial_position_type=3
+window/size/borderless=true
+window/size/always_on_top=true
+window/energy_saving/keep_screen_on=false
+mouse_cursor/custom_image="uid://djvnfjwwa3rmb"
+mouse_cursor/custom_image_hotspot=Vector2(1, 1)
 
 [rendering]
 
