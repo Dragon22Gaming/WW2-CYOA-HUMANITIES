@@ -19,7 +19,10 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/use_filter=false
 boot_splash/image="uid://dhpepnqhi62w0"
 config/icon="uid://djvnfjwwa3rmb"
-boot_splash/minimum_display_time=10000
+
+[autoload]
+
+Global="*res://Scripts/Global.gd"
 
 [debug]
 
