@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://csf57r6p4xchp"]
+
+[ext_resource type="Script" uid="uid://eqic4rjplnqm" path="res://Scripts/response_template.gd" id="1_a2581"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_55nrv"]
+font_size = 60
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Response" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "HMMM"
+label_settings = SubResource("LabelSettings_55nrv")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_a2581")

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bwo23dxyna6mf" path="res://Scripts/Manager.gd" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://dpywmdahhyrqd" path="res://Art/icon.svg" id="2_bo1nx"]
-[ext_resource type="Script" uid="uid://b6ksilf8ak1hg" path="res://Scripts/Dialogue.gd" id="3_jjvhh"]
 [ext_resource type="Script" uid="uid://jrgjxaqoiv2v" path="res://Scripts/characters/rich_bitch.gd" id="4_21xkr"]
 [ext_resource type="Script" uid="uid://b2fne1ydoekk" path="res://Scripts/characters/depressed.gd" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://cjfr8boeva0ky" path="res://Scripts/characters/stabby_stabby.gd" id="5_21xkr"]
@@ -14,6 +13,9 @@ outline_size = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_8gbba"]
 font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_kry3j"]
+font_size = 41
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -60,7 +62,6 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-script = ExtResource("3_jjvhh")
 
 [node name="Dialogue_Box" type="Label" parent="Dialogue_Background"]
 layout_mode = 1
@@ -76,7 +77,21 @@ text = "Test text lol"
 label_settings = SubResource("LabelSettings_8gbba")
 vertical_alignment = 1
 
-[node name="Responses" type="VBoxContainer" parent="Dialogue_Background"]
+[node name="Label" type="Label" parent="Dialogue_Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.237
+anchor_top = -2.03
+anchor_right = 0.771
+anchor_bottom = -1.858
+offset_left = -0.0400391
+offset_top = -0.039917
+offset_right = 0.679932
+offset_bottom = -0.143982
+text = "Responses:"
+label_settings = SubResource("LabelSettings_kry3j")
+
+[node name="Responses" type="ItemList" parent="Dialogue_Background"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.236
@@ -88,17 +103,19 @@ offset_top = -0.123962
 offset_right = -30.1602
 offset_bottom = 338.396
 scale = Vector2(1.03108, 0.577045)
+theme_override_font_sizes/font_size = 60
 
 [node name="Character_Image" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.833
-anchor_top = 0.224
+anchor_top = 0.269
 anchor_right = 1.0
-anchor_bottom = 0.698
-offset_left = 0.639893
-offset_top = 0.0799866
-offset_bottom = 0.159973
+anchor_bottom = 0.743
+offset_left = 0.640015
+offset_top = -0.52002
+offset_right = 0.00012207
+offset_bottom = -0.440063
 grow_horizontal = 0
 texture = ExtResource("2_bo1nx")
 
@@ -113,3 +130,5 @@ metadata/_custom_type_script = "uid://b2cplyilwpghr"
 [node name="Stabby Stabby" type="Node" parent="."]
 script = ExtResource("5_21xkr")
 metadata/_custom_type_script = "uid://b2cplyilwpghr"
+
+[connection signal="item_activated" from="Dialogue_Background/Responses" to="." method="_on_response"]
