@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://csl2qa8vc3swk"]
+[gd_scene load_steps=6 format=3 uid="uid://csl2qa8vc3swk"]
 
 [ext_resource type="Script" uid="uid://bwo23dxyna6mf" path="res://Scripts/Manager.gd" id="1_8gbba"]
+[ext_resource type="Texture2D" uid="uid://dhpepnqhi62w0" path="res://Art/BOOT_FLASH.png" id="2_8gbba"]
 [ext_resource type="Texture2D" uid="uid://dpywmdahhyrqd" path="res://Art/icon.svg" id="2_bo1nx"]
+[ext_resource type="Script" uid="uid://b6ksilf8ak1hg" path="res://Scripts/Dialogue.gd" id="3_jjvhh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7u77a"]
 font_size = 46
@@ -26,7 +28,7 @@ anchor_right = 1.001
 anchor_bottom = 0.752
 offset_right = -0.920044
 offset_bottom = -0.160034
-texture = ExtResource("2_bo1nx")
+texture = ExtResource("2_8gbba")
 
 [node name="Character_Name" type="Label" parent="."]
 layout_mode = 1
@@ -53,6 +55,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+script = ExtResource("3_jjvhh")
 
 [node name="Dialogue_Box" type="RichTextLabel" parent="Dialogue_Background"]
 layout_mode = 1

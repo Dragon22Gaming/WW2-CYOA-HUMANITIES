@@ -1,15 +1,11 @@
 extends Node
 
-@export_enum("room_one","room_two","room_three") var default_room = "room_two"
+@export_enum("room_one","room_two","room_three") var default_background = "room_two"
 @export_enum("rich_bitch", "depressed") var default_character = "rich_bitch"
-@onready var current_room = default_room
+@onready var current_background = default_background
 @onready var current_character = default_character
+var characters: Dictionary[String, Texture] = {"rich_bitch": load("res://Art/asshole_1.png")}
+var backgrounds: Dictionary[String, Texture] = {"room_one": load("res://Art/icon.svg"), "room_two": load("res://Art/room_2.png"), "room_three": load("res://Art/icon.svg")}
 
 func _ready():
-	print("The Global is alive >:3")
-
-func change_background():
-	pass
-
-func change_character(name: String, character_key: String):
-	pass
+	print("The global is online >:3")
