@@ -2,7 +2,9 @@ extends character
 
 var dialogue: Dictionary[String, String] = {
 	"start": 'hello can i stabby stabby?',
-	"piss off": 'You are very rude, KYS :3'
+	"piss off": 'You are very rude, KYS :3',
+	":3": "*stabs you cutely UwU*",
+	"Hello!": "Nuh uh"
 }
 
 var responses: Dictionary = {

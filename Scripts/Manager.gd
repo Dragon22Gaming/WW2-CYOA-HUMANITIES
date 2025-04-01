@@ -6,7 +6,10 @@ extends Control
 @onready var responses = $"Dialogue_Background/Responses"
 @onready var dialogue_box = $Dialogue_Background/Dialogue_Box
 @onready var rich_bitch = get_node("Rich Bitch")
+@onready var stabby = get_node("Stabby Stabby")
+@onready var depressed = get_node("Depressed")
 @onready var yes = "res://Scenes/main_menu.tscn"
+var person
 var where_im_at = "start"
 var current_dialogue: String = ""
 
@@ -16,24 +19,21 @@ var current_dialogue: String = ""
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 func _ready():
-	print("Rich bitch dialogue: " + rich_bitch.dialogue["start"])
-	print("Rich bitch responses (what you can reply with):")
-	var i: int = 0
-	for response in rich_bitch.responses["start"]:
-		i += 1
-		print(i, ": " + response)
+	where_im_at = "start"
 	
 	change_background(Global.default_background)
-	change_character("rich_bitch")
-	change_name("I... AM STEVE")
-	change_dialogue(rich_bitch.dialogue["start"])
-	change_responses(rich_bitch.responses["start"])
+	change_character("select")
+	change_name("")
+	change_dialogue("")
+	change_responses(["Richy Bitchy", "Stabby Mcgee", "The Sad One"])
 
 func change_background(background_key: String):
 	if background_key in Global.backgrounds.keys():
 		background.texture = Global.backgrounds[background_key]
 
 func change_character(character_key: String):
+	if character_key == "select":
+		character_image.texture = load("res://Art/no.png")
 	if character_key in Global.characters.keys():
 		character_image.texture = Global.characters[character_key]
 
@@ -53,8 +53,12 @@ func change_responses(allowed_responses: Array):
 		responses.add_item(response, load("res://Art/icon.svg"))
 
 func _on_response(index: int) -> void:
-	print("Response: " + rich_bitch.responses[where_im_at][index])
-	handle_response(rich_bitch.responses[where_im_at][index])
+	if person == null:
+		match index:
+			0: person = rich_bitch
+			1: person = stabby
+			2: person = depressed
+	handle_response(person.responses[where_im_at][index])
 
 func handle_response(response):
 	where_im_at = response
