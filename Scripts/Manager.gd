@@ -6,6 +6,7 @@ extends Control
 @onready var responses = $"Dialogue_Background/Responses"
 @onready var dialogue_box = $Dialogue_Background/Dialogue_Box
 @onready var rich_bitch = get_node("Rich Bitch")
+@onready var yes = "res://Scenes/main_menu.tscn"
 var where_im_at = "start"
 var current_dialogue: String = ""
 
@@ -41,7 +42,10 @@ func change_name(text: String):
 	print("character_name changed to: '" + text + "'")
 
 func change_dialogue(text: String):
-	dialogue_box.text = text
+	if text == "DEATH":
+		print("DEATH HAS OCCURED LOL :3")
+		get_tree().change_scene_to_file(yes)
+	else: dialogue_box.text = text
 
 func change_responses(allowed_responses: Array):
 	responses.clear()
