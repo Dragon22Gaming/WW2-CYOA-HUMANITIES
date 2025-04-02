@@ -9,4 +9,5 @@ var dialogue: Dictionary[String, String] = {
 
 var responses: Dictionary = {
 	"start": ["Hello!", "Piss off", ":3"],
+	"Hello!": ["die", "KYS YOU STUPID DUMBASS"]
 }

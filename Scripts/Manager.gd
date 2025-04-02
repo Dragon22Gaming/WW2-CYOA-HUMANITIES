@@ -41,10 +41,10 @@ func change_name(text: String) -> void:
 	print("character_name changed to: '" + text + "'")
 
 func change_dialogue(text: String) -> void:
-	if text == "DEATH":
-		print("DEATH HAS OCCURED LOL :3")
-		get_tree().change_scene_to_file(yes)
-	else: dialogue_box.text = text
+	match text:
+		"death": death()
+		"escape": win("escape")
+		_: dialogue_box.text = text
 
 func change_responses(allowed_responses: Array) -> void:
 	responses.clear()
@@ -106,3 +106,13 @@ func set_character(character: String) -> void:
 			change_name("Stabby Stabby")
 			change_responses(person.responses["start"])
 			change_dialogue(person.dialogue["start"])
+
+func abort_mission_commander(time: int):
+	await get_tree().create_timer(time).timeout
+	get_tree().change_scene_to_file(yes)
+
+func death():
+	pass
+
+func win(condition: String):
+	pass
