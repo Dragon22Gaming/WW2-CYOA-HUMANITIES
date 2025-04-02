@@ -20,9 +20,8 @@ var current_dialogue: String = ""
 
 func _ready() -> void:
 	where_im_at = "start"
-	
 	change_background(Global.default_background)
-	change_character("select")
+	change_character("")
 	change_name("")
 	change_dialogue("")
 	change_responses(["Richy Bitchy", "Stabby Mcgee", "The Sad One"])
@@ -32,7 +31,7 @@ func change_background(background_key: String) -> void:
 		background.texture = Global.backgrounds[background_key]
 
 func change_character(character_key: String)-> void:
-	if character_key == "select":
+	if character_key == "":
 		character_image.texture = load("res://Art/no.png")
 	if character_key in Global.characters.keys():
 		character_image.texture = Global.characters[character_key]
@@ -72,10 +71,11 @@ func _on_response(index: int) -> void:
 	handle_response(person.responses[where_im_at][index])
 
 func handle_response(response) -> void:
-	match response:
-		"Ritchy Bitchy": set_character("Ritchy Bitchy")
-		"The Sad One": set_character("The Sad One")
-		"Stabby Mcgee": set_character("Stabby Mcgee")
+	if where_im_at == "start":
+		match response:
+			"Ritchy Bitchy": set_character("Ritchy Bitchy")
+			"The Sad One": set_character("The Sad One")
+			"Stabby Mcgee": set_character("Stabby Mcgee")
 	if response in person.dialogue:
 		change_dialogue(person.dialogue[response])
 	else: print("invalid dialogue key: " + response)
@@ -90,19 +90,19 @@ func set_character(character: String) -> void:
 			person = rich_bitch
 			change_character("rich_bitch")
 			change_name("Rich Bitch")
-			change_responses(person.responses[where_im_at])
-			change_dialogue(person.dialogue[where_im_at])
+			change_responses(person.responses["start"])
+			change_dialogue(person.dialogue["start"])
 		
 		"The Sad One":
 			person = depressed
 			change_character("depressed")
 			change_name("Depressed")
-			change_responses(person.responses[where_im_at])
-			change_dialogue(person.dialogue[where_im_at])
+			change_responses(person.responses["start"])
+			change_dialogue(person.dialogue["start"])
 		
 		"Stabby Mcgee":
 			person = stabby
 			change_character("stabby")
 			change_name("Stabby Stabby")
-			change_responses(person.responses[where_im_at])
-			change_dialogue(person.dialogue[where_im_at])
+			change_responses(person.responses["start"])
+			change_dialogue(person.dialogue["start"])
