@@ -18,7 +18,7 @@ var current_dialogue: String = ""
 #DO IT NOW YOU LITTLE SHIT :3
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-func _ready():
+func _ready() -> void:
 	where_im_at = "start"
 	
 	change_background(Global.default_background)
@@ -27,44 +27,82 @@ func _ready():
 	change_dialogue("")
 	change_responses(["Richy Bitchy", "Stabby Mcgee", "The Sad One"])
 
-func change_background(background_key: String):
+func change_background(background_key: String) -> void:
 	if background_key in Global.backgrounds.keys():
 		background.texture = Global.backgrounds[background_key]
 
-func change_character(character_key: String):
+func change_character(character_key: String)-> void:
 	if character_key == "select":
 		character_image.texture = load("res://Art/no.png")
 	if character_key in Global.characters.keys():
 		character_image.texture = Global.characters[character_key]
 
-func change_name(text: String):
+func change_name(text: String) -> void:
 	character_name.text = text
 	print("character_name changed to: '" + text + "'")
 
-func change_dialogue(text: String):
+func change_dialogue(text: String) -> void:
 	if text == "DEATH":
 		print("DEATH HAS OCCURED LOL :3")
 		get_tree().change_scene_to_file(yes)
 	else: dialogue_box.text = text
 
-func change_responses(allowed_responses: Array):
+func change_responses(allowed_responses: Array) -> void:
 	responses.clear()
 	for response in allowed_responses:
 		responses.add_item(response, load("res://Art/icon.svg"))
 
 func _on_response(index: int) -> void:
 	if person == null:
+		where_im_at = "start"
 		match index:
-			0: person = rich_bitch
-			1: person = stabby
-			2: person = depressed
+			0: 
+				person = rich_bitch
+				handle_response("Ritchy Bitchy")
+				return
+			1: 
+				person = stabby
+				handle_response("Stabby Mcgee")
+				return
+			2: 
+				person = depressed
+				handle_response("The Sad One")				
+				return
+	print("handling response:", person.responses[where_im_at][index])
 	handle_response(person.responses[where_im_at][index])
 
-func handle_response(response):
-	where_im_at = response
-	if response in rich_bitch.dialogue:
-		change_dialogue(rich_bitch.dialogue[response])
+func handle_response(response) -> void:
+	match response:
+		"Ritchy Bitchy": set_character("Ritchy Bitchy")
+		"The Sad One": set_character("The Sad One")
+		"Stabby Mcgee": set_character("Stabby Mcgee")
+	if response in person.dialogue:
+		change_dialogue(person.dialogue[response])
 	else: print("invalid dialogue key: " + response)
-	if response in rich_bitch.responses:
-		change_responses(rich_bitch.responses[response])
+	if response in person.responses:
+		change_responses(person.responses[response])
 	else: print("invalid response key: " + response)
+
+func set_character(character: String) -> void:
+	where_im_at = "start"
+	match character:
+		"Ritchy Bitchy":
+			person = rich_bitch
+			change_character("rich_bitch")
+			change_name("Rich Bitch")
+			change_responses(person.responses[where_im_at])
+			change_dialogue(person.dialogue[where_im_at])
+		
+		"The Sad One":
+			person = depressed
+			change_character("depressed")
+			change_name("Depressed")
+			change_responses(person.responses[where_im_at])
+			change_dialogue(person.dialogue[where_im_at])
+		
+		"Stabby Mcgee":
+			person = stabby
+			change_character("stabby")
+			change_name("Stabby Stabby")
+			change_responses(person.responses[where_im_at])
+			change_dialogue(person.dialogue[where_im_at])
