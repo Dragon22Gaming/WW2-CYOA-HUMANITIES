@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bwo23dxyna6mf" path="res://Scripts/Manager.gd" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://dpywmdahhyrqd" path="res://Art/icon.svg" id="2_bo1nx"]
-[ext_resource type="Script" uid="uid://jrgjxaqoiv2v" path="res://Scripts/characters/rich_bitch.gd" id="4_21xkr"]
-[ext_resource type="Script" uid="uid://b2fne1ydoekk" path="res://Scripts/characters/depressed.gd" id="5_6bp64"]
-[ext_resource type="Script" uid="uid://cjfr8boeva0ky" path="res://Scripts/characters/stabby_stabby.gd" id="5_21xkr"]
+[ext_resource type="Script" uid="uid://jrgjxaqoiv2v" path="res://Scripts/characters/Irene.gd" id="4_21xkr"]
+[ext_resource type="Script" uid="uid://b2fne1ydoekk" path="res://Scripts/characters/Lillian.gd" id="5_6bp64"]
+[ext_resource type="Script" uid="uid://cjfr8boeva0ky" path="res://Scripts/characters/Chester.gd" id="5_21xkr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7u77a"]
 font_size = 80
@@ -76,6 +76,7 @@ grow_vertical = 2
 text = "Test text lol"
 label_settings = SubResource("LabelSettings_8gbba")
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Label" type="Label" parent="Dialogue_Background"]
 layout_mode = 1
@@ -103,7 +104,11 @@ offset_top = -0.123962
 offset_right = -30.1602
 offset_bottom = 338.396
 scale = Vector2(1.03108, 0.577045)
-theme_override_font_sizes/font_size = 60
+theme_override_constants/v_separation = 45
+theme_override_font_sizes/font_size = 35
+allow_search = false
+max_text_lines = 3
+max_columns = 6
 
 [node name="Character_Image" type="TextureRect" parent="."]
 layout_mode = 1
@@ -119,15 +124,15 @@ offset_bottom = -0.440063
 grow_horizontal = 0
 texture = ExtResource("2_bo1nx")
 
-[node name="Rich Bitch" type="Node" parent="."]
+[node name="Irene" type="Node" parent="."]
 script = ExtResource("4_21xkr")
 metadata/_custom_type_script = "uid://b2cplyilwpghr"
 
-[node name="Depressed" type="Node" parent="."]
+[node name="Lillian" type="Node" parent="."]
 script = ExtResource("5_6bp64")
 metadata/_custom_type_script = "uid://b2cplyilwpghr"
 
-[node name="Stabby Stabby" type="Node" parent="."]
+[node name="Chester" type="Node" parent="."]
 script = ExtResource("5_21xkr")
 metadata/_custom_type_script = "uid://b2cplyilwpghr"
 

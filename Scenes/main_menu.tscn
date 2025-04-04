@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4br8w05n7p4f"]
+[gd_scene load_steps=7 format=3 uid="uid://c4br8w05n7p4f"]
 
 [ext_resource type="Script" uid="uid://cbp82jn1uuxyh" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://dg00ke3uwhx16" path="res://Art/menu_bg.png" id="2_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://dt5o1t2vxilf3" path="res://Art/no_pookie_dont_gooo.png" id="2_48xlc"]
+[ext_resource type="Texture2D" uid="uid://b8vgkutg50sa1" path="res://Art/play.png" id="3_n45e2"]
+[ext_resource type="Texture2D" uid="uid://bwo08xq3f2abx" path="res://Art/quit.png" id="4_opfnp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_28flt"]
 font_size = 60
@@ -20,6 +23,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ehe0")
+
 [node name="Play" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -30,44 +42,38 @@ offset_left = -0.880127
 offset_bottom = 0.0799866
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
-[node name="Label" type="Label" parent="Play"]
+[node name="TextureRect" type="TextureRect" parent="Play"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "haha you will suffer"
-mouse_filter = 1
-text = "Play"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("3_n45e2")
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.948
-anchor_top = 0.954
+anchor_left = 0.714
+anchor_top = 0.676
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.160156
-offset_top = -0.320068
+offset_left = -0.880127
+offset_top = -0.0800781
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
-[node name="Label" type="Label" parent="Quit"]
+[node name="TextureRect" type="TextureRect" parent="Quit"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "No pookie dont go! :3"
-mouse_filter = 1
-text = "Quit"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("4_opfnp")
 
 [node name="Dont_Go" type="Label" parent="."]
 editor_description = "I have many issues."
@@ -102,4 +108,5 @@ grow_vertical = 2
 texture = ExtResource("2_48xlc")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="focus_entered" from="Play/TextureRect" to="." method="_on_texture_rect_focus_entered"]
 [connection signal="pressed" from="Quit" to="." method="death"]
