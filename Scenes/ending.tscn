@@ -1,24 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://rd0j18lyjru7"]
+[gd_scene load_steps=4 format=3 uid="uid://rd0j18lyjru7"]
+
+[ext_resource type="Script" uid="uid://qet3plqkomgy" path="res://Scripts/ending.gd" id="1_5jm55"]
+[ext_resource type="Texture2D" uid="uid://dg00ke3uwhx16" path="res://Art/menu_bg.png" id="2_kg0jb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ew20g"]
-font_size = 96
+font_size = 86
 
-[node name="Control" type="Control"]
+[node name="ending" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5jm55")
 
-[node name="Label" type="Label" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "You were arrested/stabbed/killed or you won"
+texture = ExtResource("2_kg0jb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.519)
+
+[node name="and" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "test"
 label_settings = SubResource("LabelSettings_ew20g")
 horizontal_alignment = 1
 vertical_alignment = 1

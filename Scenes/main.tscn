@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://csl2qa8vc3swk"]
+[gd_scene load_steps=10 format=3 uid="uid://csl2qa8vc3swk"]
 
 [ext_resource type="Script" uid="uid://bwo23dxyna6mf" path="res://Scripts/Manager.gd" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://dpywmdahhyrqd" path="res://Art/icon.svg" id="2_bo1nx"]
 [ext_resource type="Script" uid="uid://jrgjxaqoiv2v" path="res://Scripts/characters/Irene.gd" id="4_21xkr"]
 [ext_resource type="Script" uid="uid://b2fne1ydoekk" path="res://Scripts/characters/Lillian.gd" id="5_6bp64"]
 [ext_resource type="Script" uid="uid://cjfr8boeva0ky" path="res://Scripts/characters/Chester.gd" id="5_21xkr"]
+[ext_resource type="Script" uid="uid://da1gjulooxo6i" path="res://Scripts/characters/kouyou.gd" id="6_21xkr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7u77a"]
 font_size = 80
@@ -93,6 +94,7 @@ text = "Responses:"
 label_settings = SubResource("LabelSettings_kry3j")
 
 [node name="Responses" type="ItemList" parent="Dialogue_Background"]
+clip_contents = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.236
@@ -104,11 +106,13 @@ offset_top = -0.123962
 offset_right = -30.1602
 offset_bottom = 338.396
 scale = Vector2(1.03108, 0.577045)
+mouse_default_cursor_shape = 8
 theme_override_constants/v_separation = 45
 theme_override_font_sizes/font_size = 35
+allow_rmb_select = true
 allow_search = false
-max_text_lines = 3
-max_columns = 6
+max_text_lines = 4
+text_overrun_behavior = 0
 
 [node name="Character_Image" type="TextureRect" parent="."]
 layout_mode = 1
@@ -134,6 +138,10 @@ metadata/_custom_type_script = "uid://b2cplyilwpghr"
 
 [node name="Chester" type="Node" parent="."]
 script = ExtResource("5_21xkr")
+metadata/_custom_type_script = "uid://b2cplyilwpghr"
+
+[node name="Kouyou" type="Node" parent="."]
+script = ExtResource("6_21xkr")
 metadata/_custom_type_script = "uid://b2cplyilwpghr"
 
 [connection signal="item_activated" from="Dialogue_Background/Responses" to="." method="_on_response"]

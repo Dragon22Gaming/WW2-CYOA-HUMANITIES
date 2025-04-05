@@ -17,4 +17,4 @@ func death():
 
 func abort_mission_commander(time: int):
 	await get_tree().create_timer(time).timeout
-	get_tree().quit()
+	Global.reset()
